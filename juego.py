@@ -55,9 +55,9 @@ imagenes_bomba = []
 imagenes_explosion = []
 
 pygame.font.init()
-font = pygame.font.SysFont('Bebas', 30)
+font = pygame.font.SysFont('Arial', 30)
 TEXT_LOSE = font.render('GAME OVER', False, (0, 0, 0))
-TEXT_WIN = font.render('WIN', False, (0, 0, 0))
+TEXT_WIN = font.render('GANASTE', False, (0, 0, 0))
 
 """Funcion que inicia el juego"""
 
