@@ -59,6 +59,9 @@ def main_background():
     surface.fill(COLOR_BACKGROUND)
 
 
+"""Import del menu para que se ejecute"""
+
+
 def menu_loop():
     pygame.init()
 

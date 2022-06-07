@@ -3,6 +3,7 @@ import math
 
 from bomba import Bomba
 
+
 class Jugador:
     posX = 4
     posY = 4

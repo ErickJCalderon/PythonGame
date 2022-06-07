@@ -19,6 +19,7 @@ class Bomba:
         elif self.time < 2000:
             self.frame = 1
 
+    """Llamada al rango de la bomba"""
     def get_range(self, mapa):
 
         self.sectors.append([self.posX, self.posY])

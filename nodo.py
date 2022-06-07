@@ -1,7 +1,7 @@
-"""Clase nodo para saber el movimiento en base al algoritmo de Dijkstra"""
+"""Clase nodo para saber el movimiento en base al algoritmo de Dijkstra y DFS"""
+
 
 class Nodo:
-
     parent = None
     weight = None
     direction = 1
@@ -12,4 +12,3 @@ class Nodo:
         self.reach = reach
         self.base_weight = base_weight
         self.value = value
-

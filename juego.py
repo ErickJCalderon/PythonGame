@@ -7,7 +7,6 @@ from explosion import Explosion
 from bot import Bot
 from algoritmo import Algoritmo
 
-
 TITLE_WIDTH = 40
 TITLE_HEIGHT = 40
 
@@ -59,6 +58,8 @@ pygame.font.init()
 font = pygame.font.SysFont('Bebas', 30)
 TEXT_LOSE = font.render('GAME OVER', False, (0, 0, 0))
 TEXT_WIN = font.render('WIN', False, (0, 0, 0))
+
+"""Funcion que inicia el juego"""
 
 
 def game_init(path, jugador_alg, bot1_alg, bot2_alg, bot3_alg, scale):
@@ -161,6 +162,9 @@ def game_init(path, jugador_alg, bot1_alg, bot2_alg, bot3_alg, scale):
     main()
 
 
+"""Cuando exite un empate"""
+
+
 def empate():
     s.fill(BACKGROUND)
     for i in range(len(tablero)):
@@ -184,13 +188,18 @@ def empate():
                 if bot.algorithm == Algoritmo.DFS:
                     for buscar in bot.path:
                         pygame.draw.rect(s, (255, 0, 0, 240),
-                                         [buscar[0] * TITLE_WIDTH, buscar[1] * TITLE_HEIGHT, TITLE_WIDTH, TITLE_WIDTH], 1)
+                                         [buscar[0] * TITLE_WIDTH, buscar[1] * TITLE_HEIGHT, TITLE_WIDTH, TITLE_WIDTH],
+                                         1)
                 else:
                     for buscar in bot.path:
                         pygame.draw.rect(s, (255, 0, 255, 240),
-                                         [buscar[0] * TITLE_WIDTH, buscar[1] * TITLE_HEIGHT, TITLE_WIDTH, TITLE_WIDTH], 1)
+                                         [buscar[0] * TITLE_WIDTH, buscar[1] * TITLE_HEIGHT, TITLE_WIDTH, TITLE_WIDTH],
+                                         1)
 
     pygame.display.update()
+
+
+"""Generador mapas random"""
 
 
 def generar_mapa():
@@ -206,12 +215,15 @@ def generar_mapa():
     return
 
 
+"""Funcion main"""
+
+
 def main():
     generar_mapa()
     while jugador.life:
         dt = clock.tick(15)
         for en in bot_list:
-            en.realizar_moveimiento(tablero, bombas, explosiones, bot_blocks)
+            en.realizar_movimiento(tablero, bombas, explosiones, bot_blocks)
         keys = pygame.key.get_pressed()
         temp = jugador.direction
         movement = False
@@ -258,6 +270,9 @@ def main():
     game_over()
 
 
+"""Checker de las bombas"""
+
+
 def actualizar_bombas(dt):
     for b in bombas:
         b.update(dt)
@@ -278,6 +293,9 @@ def actualizar_bombas(dt):
             explosiones.remove(e)
 
 
+"""Funcion para terminar el juego"""
+
+
 def game_over():
     while True:
         dt = clock.tick(15)
@@ -285,7 +303,7 @@ def game_over():
         count = 0
         ganador = ""
         for bot in bot_list:
-            bot.realizar_moveimiento(tablero, bombas, explosiones, bot_blocks)
+            bot.realizar_movimiento(tablero, bombas, explosiones, bot_blocks)
             if bot.life:
                 count += 1
                 ganador = bot.algorithm.name

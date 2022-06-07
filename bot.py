@@ -48,7 +48,7 @@ class Bot:
         else:
             self.frame += 1
 
-    def realizar_moveimiento(self, mapa, bombas, explosiones, bot):
+    def realizar_movimiento(self, mapa, bombas, explosiones, bot):
 
         if not self.life:
             return
@@ -111,7 +111,7 @@ class Bot:
 
         random.shuffle(self.dire)
 
-        # safe
+        # seguro
         if casilla[last[0] + self.dire[0][0]][last[1] + self.dire[0][1]] == 0:
             path.append([last[0] + self.dire[0][0], last[1] + self.dire[0][1]])
             self.movement_path.append(self.dire[0][2])
@@ -125,7 +125,7 @@ class Bot:
             path.append([last[0] + self.dire[3][0], last[1] + self.dire[3][1]])
             self.movement_path.append(self.dire[3][2])
 
-        # unsafe
+        # inseguro
         elif casilla[last[0] + self.dire[0][0]][last[1] + self.dire[0][1]] == 1:
             path.append([last[0] + self.dire[0][0], last[1] + self.dire[0][1]])
             self.movement_path.append(self.dire[0][2])
@@ -214,10 +214,10 @@ class Bot:
     def crear_casilla(self, mapa, bombas, explosiones, bots):
         casilla = [[0] * len(mapa) for r in range(len(mapa))]
 
-        # 0 - safe
-        # 1 - unsafe
-        # 2 - destryable
-        # 3 - unreachable
+        # 0 - seguro
+        # 1 - inseguro
+        # 2 - destruible
+        # 3 - inalcanzable
 
         for b in bombas:
             b.get_range(mapa)

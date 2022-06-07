@@ -10,6 +10,7 @@ class Explosion:
         self.frame = 0
         self.sectors = []
 
+    """Explosion de la bomba"""
     def explode(self, map, bombs, b):
 
         self.bomber = b.bomber
@@ -17,6 +18,7 @@ class Explosion:
         bombs.remove(b)
         self.bomba_cadena(bombs, map)
 
+    """La llama de la bomba al explotar"""
     def bomba_cadena(self, bombs, map):
 
         for s in self.sectors:
@@ -27,6 +29,7 @@ class Explosion:
                     x.bomber.bomb_limit += 1
                     self.explode(map, bombs, x)
 
+    """Resets de las casillas o sectores para el control de las estructuras rotas"""
     def limpiar_sectors(self, mapa):
 
         for i in self.sectors:
