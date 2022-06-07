@@ -69,7 +69,7 @@ def game_init(path, jugador_alg, bot1_alg, bot2_alg, bot3_alg, scale):
     TITLE_HEIGHT = scale
 
     global font
-    font = pygame.font.SysFont('Bebas', scale)
+    font = pygame.font.SysFont('Arial', scale)
 
     global mostrar_camino
     mostrar_camino = path
